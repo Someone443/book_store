@@ -61,8 +61,8 @@ jobs:
           command: |
             bundle exec rake db:create db:schema:load --trace
             bundle exec rake db:migrate
-        environment:
-          DATABASE_URL: "postgres://postgres@localhost:5432/book_store_test"
+          environment:
+            DATABASE_URL: "postgres://postgres@localhost:5432/book_store_test"
 
       # run tests!
       - run:
