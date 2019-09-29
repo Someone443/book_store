@@ -9,11 +9,14 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
+          PG_HOST: localhost
+          PG_USER: postgres
           RAILS_ENV: test
+          RACK_ENV: test
       - image: circleci/postgres:9.6.2
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          #POSTGRES_PASSWORD: password
           POSTGRES_DB: book_store_test
 
       # Specify service dependencies here if necessary
@@ -53,8 +56,12 @@ jobs:
             - ./vendor/bundle
 
       # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load            
+      - run: 
+          command: |
+            bundle exec rake db:create db:schema:load --trace
+            bundle exec rake db:migrate
+        environment:
+          DATABASE_URL: "postgres://postgres@localhost:5432/book_store_test"
 
       # run tests!
       - run:
