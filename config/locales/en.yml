@@ -30,4 +30,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome: 'Welcome to our amazing Bookstore!'
+  sub_welcome: 'We pore through hundreds of new books each month and select the four best we can find to share with our members.'
+  get_started: 'Get Started'
+  best_sellers: 'Best Sellers'
+  menu_log_in: 'Log in'
+  menu_sign_up: 'Sign up'
+  menu_log_out: 'Log out'
+  menu_home: 'Home'
+  menu_shop: 'Shop'
+  menu_account: 'My account'
+  menu_orders: 'Orders'
+  menu_settings: 'Settings'
+  buy_now: 'Buy Now'

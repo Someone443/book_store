@@ -1,0 +1,33 @@
+%main.container
+  #slider.carousel.slide{'data-ride': "carousel"}
+    %ol.carousel-indicators
+      - @latest_books.each_index do |index|
+        - if index.zero?
+          %li.active{'data-target': "#slider", 'data-slide-to': "#{index}"}
+        - else
+          %li{'data-target': "#slider", 'data-slide-to': "#{index}"}
+    .carousel-inner{role: "listbox"}
+      - @latest_books.each_with_index do |latest_book, index|
+        - if index.zero?
+          .item.active
+            = render :partial => 'static_pages/latest_book', locals: {latest_book: latest_book}
+        - else
+          .item
+            = render :partial => 'static_pages/latest_book', locals: {latest_book: latest_book}
+    %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
+      %span.icon-prev{'aria-hidden': "true"}
+      %span.sr-only Previous
+    %a.right.carousel-control{href: "#slider", role: "button", 'data-slide': "next"}
+      %span.icon-next{'aria-hidden': "true"}
+      %span.sr-only Next
+.container
+  .jumbotron.text-center.mb-0
+    %h2.h1= t(:welcome)
+    .mb-res-50
+      %p= t(:sub_welcome)
+    %button.btn.btn-default= t(:get_started)
+  .mb-35
+    %h3= t(:best_sellers)
+    .row
+      - @best_sellers.each do |best_seller|
+        = render :partial => 'static_pages/best_seller', locals: {best_seller: best_seller}
