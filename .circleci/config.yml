@@ -68,3 +68,5 @@ jobs:
       - run:
           name: Run tests
           command: bundle exec rspec
+          environment:
+            DATABASE_URL: "postgres://postgres@localhost:5432/book_store_test"          
