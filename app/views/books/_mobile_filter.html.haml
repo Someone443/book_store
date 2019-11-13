@@ -1,0 +1,26 @@
+.dropdowns.mb-25.visible-xs
+  %p.lead.small.mb-10 Filter by category
+  .dropdown
+    %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      = @category ? @category.name : t(:category_all)
+      %i.fa.fa-angle-down.dropdown-icon.pull-right
+    %ul.dropdown-menu
+      %li
+        %a{href: books_path}= t(:category_all)
+      - @categories.each do |category|
+        %li
+          %a{href: books_category_path(category)}= category.name
+  %p.lead.small.mb-10 Sort by
+  .dropdown
+    %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      = t(@book_filter.current_sort)
+      %i.fa.fa-angle-down.dropdown-icon.pull-right
+    %ul.dropdown-menu
+      %li
+        = link_to t(:newest), request.params.slice(:page, :sort).except(:sort)
+      %li
+        = link_to t(:popular), request.params.slice(:page, :sort).merge(sort: 'popular')
+      %li
+        = link_to t(:price), request.params.slice(:page, :sort).merge(sort: 'price')
+      %li
+        = link_to t(:price_desc), request.params.slice(:page, :sort).merge(sort: 'price_desc')
