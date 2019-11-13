@@ -10,10 +10,10 @@
       - @latest_books.each_with_index do |latest_book, index|
         - if index.zero?
           .item.active
-            = render :partial => 'static_pages/latest_book', locals: {latest_book: latest_book}
+            = render :partial => 'pages/latest_book', locals: {latest_book: latest_book, category: latest_book.category}
         - else
           .item
-            = render :partial => 'static_pages/latest_book', locals: {latest_book: latest_book}
+            = render :partial => 'pages/latest_book', locals: {latest_book: latest_book, category: latest_book.category}
     %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
       %span.icon-prev{'aria-hidden': "true"}
       %span.sr-only Previous
@@ -30,4 +30,4 @@
     %h3= t(:best_sellers)
     .row
       - @best_sellers.each do |best_seller|
-        = render :partial => 'static_pages/best_seller', locals: {best_seller: best_seller}
+        = render :partial => 'pages/best_seller', locals: {best_seller: best_seller, category: best_seller.category}

@@ -43,3 +43,8 @@ en:
   menu_orders: 'Orders'
   menu_settings: 'Settings'
   buy_now: 'Buy Now'
+  category_all: 'All'
+  newest: 'Newest first'
+  popular: 'Popular first'
+  price: 'Price: Low to hight'
+  price_desc: 'Price: Hight to low'

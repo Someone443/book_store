@@ -1,0 +1,12 @@
+%main.container
+  %h1.general-title-margin Сatalog
+  = render :partial => 'books/filter'
+  = render :partial => 'books/mobile_filter'
+  .mb-120.books-section
+    .row
+      - @books.each do |book| # ITEMS_PER_ROW last row class -> .row.mb-25
+        = render :partial => 'books/book', locals: {book: book, category: book.category}
+    .text-center
+      %button.btn.btn-primary View More
+    = pagy_bootstrap_nav(@pagy).html_safe
+    = @books.inspect

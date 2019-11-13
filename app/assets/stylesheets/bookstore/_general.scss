@@ -95,6 +95,23 @@ img {
 }
 .general-info-wrap {
   padding-top: 20px;
+  & #book_description[aria-expanded="false"] {
+    margin: 0 0;
+  }
+  & .collapse[aria-expanded="false"] {
+    display: block;
+    height: 56px !important;
+    overflow: hidden;
+  }
+  & .collapsing[aria-expanded="false"] {
+    height: 56px !important;
+  }
+  & a.collapsed[data-toggle="collapse"]:after{
+    content: "Read More";
+  }
+  & a[data-toggle="collapse"]:after{
+    content: "";
+  }  
 }
 .general-back-link {
   font-size: $font-size-base;
@@ -232,6 +249,15 @@ img {
   float: right;
 }
 
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
 
 @media (min-width: $grid-float-breakpoint) {
   .general-main-wrap {
